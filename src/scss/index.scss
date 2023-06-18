@@ -1,14 +1,62 @@
-
-
 @font-face {
-    font-family: 'Roboto';
-    src: url('@/assets/fonts/roboto.woff2') format('woff2'),
-            url('@/assets/fonts/roboto.woff') format('woff');
-    font-weight: 600;
-    font-style: normal;
+  font-family: "Open Sans", sans-serif;
+  src: url("@/assets/fonts/OpenSans-Italic-VariableFont_wdth.ttf") format("ttf"),
+    url("@/assets/fonts/OpenSans-VariableFont_wdth.ttf") format("ttf");
+  font-weight: 600;
+  font-style: normal;
 }
 
 * {
-    font-family: 'Roboto';
-    font-style: normal;
+  font-family: "Open Sans", sans-serif;
+  font-style: normal;
+}
+
+html {
+  box-sizing: border-box;
+}
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+$bg-color-primary: #1f75cb;
+$bg-color-primary-hover: #1068bf;
+$bg-color-primary-active: #0b5cad;
+$bg-color-primary-disabled: #dcdcde;
+$bg-color-secondary: #ffffff;
+$bg-color-secondary-hover: #ececef;
+$bg-color-secondary-active: #dcdcde;
+
+$border-color-default: rgba(0, 0, 0, 0.15);
+$border-color-hover: rgba(18, 19, 22, 0.5);
+$border-color-active: #1c1c1c;
+$border-color-error: #ee4222;
+$border-color-bronze: #9e6955;
+
+$font-color-primary: #1c1c1c;
+$font-color-secondary: #ffffff;
+$font-color-disabled: #8e8e8e;
+
+.wrapper {
+  margin: 0 auto;
+}
+
+.badge {
+  margin-left: 16px;
+  padding: 0 8px;
+  border-radius: 4px;
+  color: $font-color-secondary;
+}
+
+.bg-bronze {
+  background-color: $border-color-bronze;
+}
+
+.user__img {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
 }

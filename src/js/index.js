@@ -1,2 +1,4 @@
 import '@/scss/index.scss';
-console.log('hello world')
+import { renderTaskList } from './helpers';
+renderTaskList()
+

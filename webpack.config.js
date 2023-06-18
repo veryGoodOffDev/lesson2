@@ -1,6 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
     mode: 'development',
@@ -8,19 +9,19 @@ module.exports = {
         index: './src/js/index.js',
     },
     output: {
-        filename: '[name].js', // название выходного файла равно полю из entry 
-        path: path.resolve(__dirname, 'dist'), // __dirname - абсолютный путь
-        clean: true, // очистить папку dist
+        filename: '[name].js', 
+        path: path.resolve(__dirname, 'dist'), 
+        clean: true, 
     },                                        
     module: {
-        rules: [ // webpack может импортировать только JS и Json, для импорта других типов файлов нужны лоадеры
+        rules: [ 
             {
-                test: /\.css$/i, // название файла
+                test: /\.css$/i, 
                 use: [MiniCssExtractPlugin.loader, 'css-loader'],
             },                                      
             {                                       
                 test: /\.(png|jpg|jpeg|gif)$/i,
-                type: 'asset/resource', // создает отдельный файл и экспортирует URL
+                type: 'asset/resource', 
             },
             {
                 test: /\.svg$/,
@@ -64,17 +65,18 @@ module.exports = {
                         ]
                     }
                 }
-            }
+            },
         ],
     },
     plugins: [
-        new HtmlWebpackPlugin({ // HtmlWebpackPlugin создает index.html в директории с бандлом 
-            title: 'main',        // и автоматически добавляет в него ссылку на бандл.
+        new HtmlWebpackPlugin({
+            title: 'main',     
             template: './src/index.html'
         }),
         new MiniCssExtractPlugin({
             filename: "style.css",
         }),
+        new CleanWebpackPlugin(),
     ],
     devServer: {
         static: './dist',

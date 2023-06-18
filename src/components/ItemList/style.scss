@@ -1,0 +1,92 @@
+@import "@/scss/index.scss";
+.task__list {
+  list-style: none;
+  padding: 5px 18px;
+  &-item {
+    font-size: 14px;
+    color: $font-color-disabled;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    border-bottom: 1px solid $border-color-active;
+    padding: 0 16px 8px;
+    margin: 5px 0;
+  }
+  &-item:hover .item-menu{
+      display: block;
+  }
+}
+
+.item-card {
+  width: 100%;
+  &__title,
+  &__number {
+    color: $font-color-primary;
+    font-weight: 400;
+  }
+  &__title {
+    height: 38px;
+    overflow: hidden;
+    text-overflow:ellipsis;
+    word-wrap: nowrap;
+  }
+  &__number {
+    display: inline-block;
+    margin-right: 16px;
+    max-width: 220px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  &__created {
+    display: inline-flex;
+  }
+  &__body {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 4px;
+  }
+  &__head {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+
+.item-menu {
+  width: 42px;
+  height: 42px;
+  border: 1px solid $border-color-default;
+  border-radius: 4px;
+  display: none;
+  cursor: pointer;
+  flex-shrink: 0;
+  &__dots {
+    display: block;
+    border-radius: 50%;
+    margin: auto;
+    margin-top: 50%;
+    transform: translate(0, -50%);
+    width: 3px;
+    height: 3px;
+    background-color: $border-color-active;
+    position: relative;
+    &::after{
+        content: "";
+        position: absolute;
+        top: -5px;
+        border-radius: 50%;
+        width: 3px;
+        height: 3px;
+        background-color: $border-color-active;
+    }
+    &::before {
+        content: "";
+        position: absolute;
+        top: 5px;
+        border-radius: 50%;
+        width: 3px;
+        height: 3px;
+        background-color: $border-color-active;
+    }
+  }
+}
