@@ -11,11 +11,48 @@
     border-bottom: 1px solid $border-color-active;
     padding: 0 16px 8px;
     margin: 5px 0;
+    position: relative;
   }
   &-item:hover .item-menu{
       display: block;
   }
 }
+.tooltip {
+    position: absolute;
+    display: none;
+    left: 50%;
+    top: 90%;
+    max-width: 400px;
+    padding: 16px;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
+    background-color: $bg-color-secondary;
+    z-index: 1;
+    transform: translate(-50%, 0);
+    border-radius: 4px;
+    &::before {
+        content:'';
+        position:absolute;
+        width:22px;
+        height:22px;
+        left:50%;
+        top: -22px;
+        transform:translate(-50%,50%) rotate(45deg);
+        background-color: $bg-color-secondary;
+        box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
+    }
+    &::after {
+      content:'';
+      position:absolute;
+      width:35px;
+      height:15px;
+      left:50%;
+      top: -6px;
+      transform:translate(-50%,50%);
+      background-color: $bg-color-secondary;
+  }
+    
+    }
+
 
 .item-card {
   width: 100%;
@@ -30,6 +67,9 @@
     text-overflow:ellipsis;
     word-wrap: nowrap;
   }
+  // &__title:hover .tooltip {
+  //   display: block;
+  // }
   &__number {
     display: inline-block;
     margin-right: 16px;
@@ -48,6 +88,9 @@
   &__head {
     display: flex;
     justify-content: space-between;
+  }
+  &__head:hover .tooltip {
+    display: block;
   }
 }
 

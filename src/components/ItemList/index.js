@@ -15,7 +15,8 @@ export const createItem = (id, title, status, created, edited, number, isProject
           itemBadge = create('span'),
           itemEdited = create('p'),
           itemMenu = create('div'),
-          itemMenuDots = create('span')
+          itemMenuDots = create('span'),
+          itemTooltip = create('span')
           
 
 
@@ -46,7 +47,10 @@ export const createItem = (id, title, status, created, edited, number, isProject
     itemMenu.className = 'item-menu'
     itemMenuDots.className = 'item-menu__dots'
 
-    taskItem.append(itemCard, itemMenu)
+    itemTooltip.className = 'tooltip'
+    itemTooltip.textContent = title
+
+    taskItem.append(itemCard, itemMenu, itemTooltip)
     itemCard.append(itemHead, cardBody)
     itemMenu.append(itemMenuDots)
     if (!isProject) {
