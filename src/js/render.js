@@ -1,6 +1,7 @@
 import { createItem } from "../components/ItemList";
 import { items } from "./fakeApi";
 import { createEmptyPage } from "../components/EmptyPage";
+import { createHeaderNav } from "../components/Navigation";
 const app = document.querySelector("#app");
 const create = document.createElement.bind(document);
 
@@ -23,6 +24,11 @@ const ctreateContainer = () => {
   return taskList;
 };
 
+export const renderHeadMenu = () => {
+  const headMenu = createHeaderNav()
+  wrapper.append(headMenu)
+}
+
 export const renderTaskList = () => {
   const section = createSection("tasks");
   const container = ctreateContainer();
@@ -43,9 +49,9 @@ export const renderTaskList = () => {
   });
 };
 
-export const renderEmptyPage = () => {
+export const renderEmptyPage = (text) => {
   const section = createSection('no-tasks')
-  const emptyPage = createEmptyPage('Не создан ни один проект')
+  const emptyPage = createEmptyPage(text)
   wrapper.append(section)
   section.append(emptyPage)
 }

@@ -1,0 +1,27 @@
+@import "@/scss/index.scss";
+.item-menu__list {
+  z-index: 2;
+  background-color: $bg-color-secondary;
+  list-style: none;
+  position: absolute;
+  right: 16px;
+  top: 54px;
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
+  display: none;
+  &-item {
+    padding: 8px 16px;
+    &:hover {
+      background-color: $bg-color-secondary-hover;
+    }
+  }
+}
+.user__dropdown {
+  z-index: 2;
+  background-color: $bg-color-secondary;
+  list-style: none;
+  position: absolute;
+  right: 24px;
+  top: 69px;
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
+  display: none;
+}

@@ -9,6 +9,7 @@
 * {
   font-family: "Open Sans", sans-serif;
   font-style: normal;
+  font-size: 14px;
 }
 
 html {
@@ -47,8 +48,8 @@ $font-color-disabled: #8e8e8e;
 .badge {
   margin-left: 16px;
   padding: 0 8px;
-  border-radius: 4px;
   color: $font-color-secondary;
+  border-radius: 4px;
 }
 
 .bg-bronze {
@@ -63,4 +64,22 @@ $font-color-disabled: #8e8e8e;
 
 .no-tasks {
   height: 90vh;
+}
+
+.show {
+  display: block;
+  background-color: $bg-color-secondary-active;
+}
+
+.show-menu {
+  display: block;
+}
+
+a .active {
+  background-color: $bg-color-secondary;
+  color: $font-color-primary;
+}
+
+a .active .arrow.down > svg {
+  color: $font-color-disabled;
 }
