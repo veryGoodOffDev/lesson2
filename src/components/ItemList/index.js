@@ -1,6 +1,6 @@
 import "./style.scss";
 import avatar from "@/assets/images/userAvatar.jpg";
-import { dropDownMenuItem } from "../dropDownMenu";
+import { dropDownMenuItem } from "@/components/dropDownMenu";
 const create = document.createElement.bind(document);
 
 export const createItem = (

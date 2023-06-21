@@ -1,6 +1,6 @@
 import "./style.scss";
 import "@/js/register";
-import { dropDownUserMenu } from "../dropDownMenu";
+import { dropDownUserMenu } from "@/components/dropDownMenu";
 import avatar from "@/assets/images/userAvatar.jpg";
 
 const createItemMenu = (path, title) => {

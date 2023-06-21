@@ -39,10 +39,11 @@ function selectActiveMenu(event) {
   const allLinks = document.querySelectorAll(".menu__list-link");
   const isNavLink = event.target.closest(".menu__list-link");
   if (isNavLink) {
-    allLinks.forEach((link) => {
-      link.classList.remove("active");
-    });
-    event.target.classList.add("active");
+      allLinks.forEach((link) => {
+        link.classList.remove("active");
+      });
+      event.target.classList.add("active");
+    
   }
 }
 

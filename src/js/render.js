@@ -1,7 +1,7 @@
-import { createItem } from "../components/ItemList";
-import { items } from "./fakeApi";
-import { createEmptyPage } from "../components/EmptyPage";
-import { createHeaderNav } from "../components/Navigation";
+import { createItem } from "@/components/ItemList";
+import { items } from "@/js/fakeApi";
+import { createEmptyPage } from "@/components/EmptyPage";
+import { createHeaderNav } from "@/components/Navigation";
 const app = document.querySelector("#app");
 const create = document.createElement.bind(document);
 
