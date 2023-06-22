@@ -10,11 +10,13 @@ function selectActiveMenu(event) {
   const allLinks = document.querySelectorAll(".menu__list-link");
   const isNavLink = event.target.closest(".menu__list-link");
   if (isNavLink) {
+    if(isNavLink.classList.contains('active')){
+      return
+    }
       allLinks.forEach((link) => {
         link.classList.remove("active");
       });
       event.target.classList.add("active");
-    
   }
 }
 
