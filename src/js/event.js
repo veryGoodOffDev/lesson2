@@ -24,7 +24,11 @@ function showUserDropDown(event) {
   const isUserButton = event.target.closest(".user__button");
   const userDropDown = document.querySelector(".user__dropdown");
   const usrButton = document.querySelector(".user__button");
+ 
   if (isUserButton) {
+    if(event.target.classList.contains('item-menu__list-item')) {
+      return
+    }
     isUserButton.classList.toggle("active");
     userDropDown.classList.toggle("show-menu");
   } else {
@@ -37,6 +41,9 @@ function hideMenu(event){
   const allNavButtons = document.querySelectorAll('.item-menu')
   const allDropDownMenu = document.querySelectorAll('.item-menu__list')
   if(!event.target.classList.contains('item-menu')) {
+    if(event.target.classList.contains('item-menu__list-item')) {
+      return
+    }
     allNavButtons.forEach((navButton) => {
       navButton.classList.remove('show')
     })
@@ -50,8 +57,11 @@ function hideMenu(event){
 export function setDropDownMenu() {
   const allNavButtons = document.querySelectorAll('.item-menu')
   allNavButtons.forEach((navMenu) => {
-    navMenu.addEventListener('click', () => {
+    navMenu.addEventListener('click', (e) => {
       const currentMenu = navMenu.closest('.item-menu')
+      if(e.target.classList.contains('item-menu__list-item')) {
+        return
+      } 
       if(currentMenu) {
           currentMenu.classList.toggle('show')
           currentMenu.childNodes[1].classList.toggle('show-menu')
