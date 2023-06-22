@@ -4,13 +4,6 @@ const createItemsDrop = (text) => {
   const menuItem = document.createElement("li");
   menuItem.className = "item-menu__list-item";
   menuItem.textContent = text;
-
-  if (text === "Редактировать") {
-    menuItem.classList.add("edit");
-  } else if (text === "Удалить") {
-    menuItem.classList.add("delete");
-  }
-
   return menuItem;
 };
 
@@ -18,9 +11,12 @@ export const dropDownMenuItem = (id) => {
   const dropDownMenu = document.createElement("ul");
   dropDownMenu.className = "item-menu__list";
   dropDownMenu.id = id;
+  const itemEdit = createItemsDrop('Редактировать')
+  const itemDelete = createItemsDrop('Удалить')
+  itemEdit.classList.add('edit')
+  itemDelete.classList.add('delete')
   dropDownMenu.append(
-    createItemsDrop("Редактировать"),
-    createItemsDrop("Удалить")
+    itemEdit, itemDelete
   );
   return dropDownMenu;
 };

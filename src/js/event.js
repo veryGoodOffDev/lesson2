@@ -1,39 +1,10 @@
 const app = document.querySelector("#app");
-
 app.addEventListener("click", (e) => {
-  displayMenuItem(e);
   selectActiveMenu(e);
   showUserDropDown(e);
+  hideMenu(e)
 });
 
-function displayMenuItem(event) {
-  const allNavMenu = document.querySelectorAll(".item-menu");
-  const isNavMenu = event.target.closest(".item-menu");
-  const allMenuLists = document.querySelectorAll(".item-menu__list");
-
-  const dropDownMenu = event.target.hasChildNodes()
-    ? event.target.lastChild
-    : null;
-
-  if (!isNavMenu || !dropDownMenu) {
-    allNavMenu.forEach((menu) => {
-      menu.classList.remove("show");
-      allMenuLists.forEach((list) => {
-        list.classList.remove("show-menu");
-      });
-    });
-  } else if (isNavMenu) {
-    event.target.classList.toggle("show");
-    dropDownMenu.classList.toggle("show-menu");
-  } else {
-    allNavMenu.forEach((menu) => {
-      menu.classList.remove("show");
-    });
-    allMenuLists.forEach((list) => {
-      list.classList.remove("show-menu");
-    });
-  }
-}
 
 function selectActiveMenu(event) {
   const allLinks = document.querySelectorAll(".menu__list-link");
@@ -51,7 +22,6 @@ function showUserDropDown(event) {
   const isUserButton = event.target.closest(".user__button");
   const userDropDown = document.querySelector(".user__dropdown");
   const usrButton = document.querySelector(".user__button");
-  console.log(isUserButton);
   if (isUserButton) {
     isUserButton.classList.toggle("active");
     userDropDown.classList.toggle("show-menu");
@@ -59,4 +29,34 @@ function showUserDropDown(event) {
     usrButton.classList.remove("active");
     userDropDown.classList.remove("show-menu");
   }
+}
+
+function hideMenu(event){
+  const allNavButtons = document.querySelectorAll('.item-menu')
+  const allDropDownMenu = document.querySelectorAll('.item-menu__list')
+  if(!event.target.classList.contains('item-menu')) {
+    allNavButtons.forEach((navButton) => {
+      navButton.classList.remove('show')
+    })
+    allDropDownMenu.forEach((menu) => {
+      menu.classList.remove('show-menu')
+    })
+  }
+}
+
+
+export function setDropDownMenu() {
+  const allNavButtons = document.querySelectorAll('.item-menu')
+  allNavButtons.forEach((navMenu) => {
+    navMenu.addEventListener('click', () => {
+      const currentMenu = navMenu.closest('.item-menu')
+      if(currentMenu) {
+          currentMenu.classList.toggle('show')
+          currentMenu.childNodes[1].classList.toggle('show-menu')
+      } 
+      if(!currentMenu) {
+        navMenu.classList.remove('show-menu')
+      }
+    })
+  })
 }

@@ -55,3 +55,4 @@ export const renderEmptyPage = (text) => {
   wrapper.append(section)
   section.append(emptyPage)
 }
+
